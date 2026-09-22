@@ -7,8 +7,8 @@ import {
 } from 'lucide-react';
 
 const CATEGORIES = ['Electronics', 'ID Cards & Wallets', 'Books & Stationary', 'Keys', 'Clothing', 'Others'];
-const API_URL = 'http://localhost:5000/api';
-const BASE_SERVER_URL = 'http://localhost:5000';
+const API_URL = 'https://foundify-backend-87o3.onrender.com';
+const BASE_SERVER_URL = 'https://foundify-backend-87o3.onrender.com';
 
 export default function App() {
   // Tab state synced with localStorage
