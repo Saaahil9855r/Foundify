@@ -241,5 +241,8 @@ app.patch('/api/admin/claims/:id', authenticateAdmin, (req, res) => {
   });
 });
 
-const PORT = 5000;
-app.listen(PORT, () => console.log(`Foundify Server listening on http://localhost:${PORT}`));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, '0.0.0.0', () => {
+  console.log(`Foundify Server listening on port ${PORT}`);
+});
