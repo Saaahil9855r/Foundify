@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const Fuse = require('fuse.js');
@@ -15,10 +16,9 @@ app.use(cors());
 app.use(express.json());
 
 // JWT & Security Config
-const JWT_SECRET = process.env.JWT_SECRET || 'foundify_super_secure_college_secret_key_2026';
-// Change 'admin123' to whatever custom password you want (e.g. 'Foundify@2026')
-const ADMIN_PASSWORD_HASH = bcrypt.hashSync('admin@7488', 10);
-
+const JWT_SECRET = process.env.JWT_SECRET;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+const ADMIN_PASSWORD_HASH = bcrypt.hashSync(ADMIN_PASSWORD, 10);
 
 // Ensure uploads folder exists
 const uploadsDir = path.join(__dirname, 'uploads');

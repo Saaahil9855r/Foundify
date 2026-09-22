@@ -54,12 +54,12 @@ db.serialize(() => {
     // Seed default admin if table is empty: (Username: admin, Password: admin123)
     db.get('SELECT COUNT(*) as count FROM admins', [], (err, row) => {
       if (!err && row && row.count === 0) {
-        const defaultHash = bcrypt.hashSync('admin123', 10);
+        const defaultHash = bcrypt.hashSync(process.env.ADMIN_PASSWORD, 10);
         db.run(
           'INSERT INTO admins (username, password_hash, full_name, role) VALUES (?, ?, ?, ?)',
           ['admin', defaultHash, 'Campus Security Desk', 'head_security']
         );
-        console.log('Seeded initial admin account: username="admin", password="admin123"');
+        console.log('Seeded initial admin account: username="admin"');
       }
     });
   });
